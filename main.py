@@ -1,35 +1,36 @@
 import pygame
 import os
-import time
+# import time
 import random
 
 
 pygame.font.init()
 
 # Width , height of the playing window
-WIDTH , HEIGHT = 720 ,670
+WIDTH, HEIGHT = 720, 670
 
-#To set the display of the pygame
-WIN = pygame.display.set_mode((WIDTH,HEIGHT))
+# Set the display of pygame
+WIN = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Space Fighters")
 
-#Loading images
+# Loading images
 # Menu
-MENU = pygame.image.load(os.path.join('assets','menu.png'))
+MENU = pygame.image.load(os.path.join('assets', 'menu.png'))
 # 1. Player Ships
-PLAYER_SHIP_1 =pygame.image.load(os.path.join('assets', 'player_ship.png'))
+PLAYER_SHIP_1 = pygame.image.load(os.path.join('assets', 'player_ship.png'))
 
 # 2. Enemy Ships
-ENEMY_SHIP_1 =pygame.image.load(os.path.join('assets', 'red_enemy.png'))
+ENEMY_SHIP_1 = pygame.image.load(os.path.join('assets', 'red_enemy.png'))
 
 # 3. Lasers
-BLUE_LASERS = pygame.image.load(os.path.join("assets","blue_laser.png"))
+BLUE_LASERS = pygame.image.load(os.path.join("assets", "blue_laser.png"))
 
 # 4. Background
-BG_1 = pygame.image.load(os.path.join("assets","space_bg.webp"))
+BG_1 = pygame.image.load(os.path.join(os.path.abspath(__file__), "../assets/space_bg.png"))
+
 
 # Making Object classes
-class Laser :
+class Laser:
     def __init__(self, x ,y , img) :
         self.x = x
         self.y = y
@@ -48,7 +49,8 @@ class Laser :
     def collision(self,obj) :
         return collide(self,obj)
 
-class ship :
+
+class ship:
     COOLDOWN = 40
     #initialising object parameters
     def __init__(self,x,y,health=100) :

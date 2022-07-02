@@ -6,7 +6,7 @@
 It is written on python and built using the pygame library.
 
 ## Installation
-The game is in developing stage so the bundled version is not availaible for the time being.
+The game is in developing stage so the bundled version is not available for the time being.
 
 You can run the game easily if you have python installed on your system.
 
@@ -20,7 +20,7 @@ Open the terminal in a new folder
     $ cd ./Space-Fighters
     ```
 3. Install pygame 
-    ```shell
+    ```console
     $ pip install pygame
     ```
 4. Now you are ready to enjoy the game
@@ -29,10 +29,10 @@ Open the terminal in a new folder
     ```
 ## Feature Update :
 * Different player ship for each level
-* Health and laser booster comming soon
+* Health and laser booster coming soon
 * Evolving Enemy ships will be added soon
 
 ## Remarks :
 * Drop your suggestion in the discussion panel, your feedback is valuable.
 * Please share and give stars if you like the game.
-* If you have some time please look on the issue section and help your fellow developer fix them.
+* If you have some time, please look on the issue section and help your fellow developer fix them.
