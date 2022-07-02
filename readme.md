@@ -1,14 +1,14 @@
 # Space Fighters
 ![main image](/assets/main.png)
 ## About 
- Space fighter is an open source game purely made for entertainment and learning purpose.
+ Space fighters is an open source game purely made for entertainment and learning purposes.
 
-It is  based on python and is built using pygame library.
+It is written on python and built using the pygame library.
 
 ## Installation
-Since the game is in developing stage so the bundled version is not availaible for the time being.
+The game is in developing stage so the bundled version is not availaible for the time being.
 
-You can run the game simply if you have python installed on your system.
+You can run the game easily if you have python installed on your system.
 
 Open the terminal in a new folder
 1. Clone the repository
@@ -19,24 +19,20 @@ Open the terminal in a new folder
     ```console
     $ cd ./Space-Fighters
     ```
-
 3. Install pygame 
     ```shell
     $ pip install pygame
     ```
-4. Now you are ready to enjoy the  game
+4. Now you are ready to enjoy the game
      ```console
     $ python3 main.py
     ```
-## Feature Updatee :
-* Different player ships for each levels
+## Feature Update :
+* Different player ship for each level
 * Health and laser booster comming soon
-* Evolving Enemy ships will be added soone
+* Evolving Enemy ships will be added soon
 
 ## Remarks :
-* Drop your suggestion in the discussion panel , your feedback is valuable.
+* Drop your suggestion in the discussion panel, your feedback is valuable.
 * Please share and give stars if you like the game.
-* If you have some time please look on the issue secion and help your fellow developer to fix them.
-
-
-
+* If you have some time please look on the issue section and help your fellow developer fix them.
