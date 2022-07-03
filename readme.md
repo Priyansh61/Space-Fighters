@@ -28,7 +28,7 @@ Open the terminal in a new folder
      ```console
     $ python3 main.py
     ```
-## Feature Updatee :
+## Feature Update :
 * Different player ships for each levels
 * Health and laser booster comming soon
 * Evolving Enemy ships will be added soone
