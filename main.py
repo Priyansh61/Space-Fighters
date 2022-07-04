@@ -117,7 +117,8 @@ class Player(Ship):
                 for obj in objs:
                     if laser.collision(obj):
                         objs.remove(obj)
-                        self.lasers.remove(laser)
+                        if laser in self.lasers:
+                            self.lasers.remove(laser)
 
     def draw(self, window):
         super().draw(window)
@@ -262,7 +263,8 @@ def main():
 
         # Checking for lives and health:
         if lives == 0 or player.health <= 0:
-            game_over = True
+            # game_over = True
+            pass
 
         # Deploying enemies:
         if len(enemies) == 0:
@@ -272,6 +274,7 @@ def main():
                 enemy = Enemy(random.randrange(100, WIDTH - 200),
                               random.randrange(-1000, -100), level)
                 enemies.append(enemy)
+                print(num_enemies)
 
         # Moving and removing enemies:
         for enemy in enemies:
