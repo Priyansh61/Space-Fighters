@@ -44,7 +44,15 @@ class Enemy(pygame.sprite.Sprite):
                 self.kill()
                 laser.kill()
 
-    def update(self, lasers):
+    def destroy(self, enemies):  # Avoid having enemies spawn on top of each other
+        for enemy in enemies.sprites():
+            if enemy is self:
+                pass
+            elif pygame.sprite.collide_mask(self, enemy):
+                enemy.kill()
+
+    def update(self, lasers, enemies):
         self.move()
         self.shoot(lasers)
         self.laser_hit(lasers)
+        self.destroy(enemies)

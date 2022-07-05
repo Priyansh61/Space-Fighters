@@ -82,7 +82,7 @@ class Game:
         global game_active, game_over, lives, start_time, score, highscore
         # ----------------------------------MAIN LOOP----------------------------------------------#
         while True:
-            # ------------------------- ----EVENT LOOP---------------------------------------------#
+            # ------------------------------EVENT LOOP---------------------------------------------#
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     sys.exit()
@@ -92,15 +92,14 @@ class Game:
                 self.screen.blit(self.bg, (0, 0))
 
                 # --------------------------ENEMY SPAWN--------------------------------------------#
-
-                if random.randrange(0, 100) == 0:
-                    self.enemies.add(Enemy((random.randint(0, WIDTH), -1 * random.randint(100, 300))))
+                if random.randrange(0, 50) == 0:
+                    self.enemies.add(Enemy((random.randint(0, WIDTH), random.randint(-1000, -100))))
 
                 # ----------------------UPDATE AND DRAW SPRITES-----------------------------------#
                 self.player.update(self.lasers)  # I need lasers Group inside, I pass it in
                 self.player.draw(self.screen)
 
-                self.enemies.update(self.lasers)
+                self.enemies.update(self.lasers, self.enemies)  # I need lasers and enemies groups
                 self.enemies.draw(self.screen)
 
                 self.lasers.update()
