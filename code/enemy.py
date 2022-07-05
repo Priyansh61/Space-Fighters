@@ -25,7 +25,7 @@ class Enemy(pygame.sprite.Sprite):
             pos[0] = self.display_width - self.image.get_width()
         self.rect = self.image.get_rect(topleft=pos)
 
-        self.countdown = 200
+        self.countdown = 300
 
     def move(self):
         self.rect.y += 1
@@ -33,7 +33,7 @@ class Enemy(pygame.sprite.Sprite):
     def shoot(self, lasers):
         if self.countdown == 0:
             lasers.add(Laser(self.rect.midbottom, "enemy"))
-            self.countdown = 200
+            self.countdown = 300
 
         if self.countdown > 0:
             self.countdown -= 1
