@@ -57,6 +57,7 @@ class Game:
         for enemy in self.enemies.sprites():
             if pygame.sprite.collide_mask(self.player.sprite, enemy):
                 self.player.sprite.health -= 25
+                enemy.kill()
 
     def display_lives(self):
         global lives
