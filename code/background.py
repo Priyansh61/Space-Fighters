@@ -13,10 +13,10 @@ class Background(pygame.sprite.Sprite):
             self.y_range_max = 0
 
         self.pos = (random.randrange(0, self.display.get_width()),
-                    random.randrange(-100, self.y_range_max))
+                    random.randrange(-10, self.y_range_max))
         self.rad = random.randrange(1, 3)
 
-        self.speed = 0.5
+        self.speed = random.randrange(1, 6) * 0.1
 
     def update(self):
         self.pos = (self.pos[0], self.pos[1] + self.speed)

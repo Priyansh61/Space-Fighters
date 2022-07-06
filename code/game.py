@@ -93,7 +93,7 @@ class Game:
                 if score < 0.5:
                     for i in range(100):
                         self.bg.add(Background("beginning"))
-                if random.randrange(0, 2):
+                if not random.randrange(0, 3):
                     self.bg.add(Background())
                 self.bg.update()
 
