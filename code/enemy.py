@@ -31,7 +31,7 @@ class Enemy(pygame.sprite.Sprite):
         self.rect.y += 1
 
     def shoot(self, lasers):
-        if self.countdown == 0:
+        if self.countdown == 0 and self.rect.top > 0:  # Avoid enemies shooting before entering screen
             lasers.add(Laser(self.rect.midbottom, "enemy"))
             self.countdown = 300
 

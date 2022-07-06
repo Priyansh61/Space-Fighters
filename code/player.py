@@ -11,11 +11,14 @@ class Player(pygame.sprite.Sprite):
                                        "../../assets/player_ship.png")
         self.image = pygame.image.load(self.image_path).convert_alpha()
         self.mask = pygame.mask.from_surface(self.image)
-        self.pos = (self.display.get_width() / 2, 0.9 * self.display.get_height())
+
+        self.pos = (self.display.get_width() / 2, 0.75 * self.display.get_height())
         self.rect = self.image.get_rect(center=self.pos)
+
         self.max_health = health
         self.health = health
         self.speed = speed
+
         self.countdown = 0
 
     def move(self):
