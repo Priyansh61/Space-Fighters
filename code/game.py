@@ -4,6 +4,7 @@ import random
 import sys
 from player import Player
 from enemy import Enemy
+from background import Background
 
 # ----------------------------GLOBAL VARIABLES DEFAULT--------------------------------------------#
 game_active = False
@@ -36,9 +37,6 @@ class Game:
         menu_path = os.path.join(os.path.abspath(__file__), "../../assets/menu.png")
         self.menu = pygame.image.load(menu_path).convert()
 
-        bg_path = os.path.join(os.path.abspath(__file__), "../../assets/space_bg.png")
-        self.bg = pygame.image.load(bg_path).convert()
-
         # -----------------------------------TEXT-------------------------------------------------#
         game_over_font = pygame.font.SysFont('arial', 60)
         self.lives_font = pygame.font.SysFont('arial', 40)
@@ -51,6 +49,7 @@ class Game:
         self.player = pygame.sprite.GroupSingle(Player())
         self.enemies = pygame.sprite.Group()
         self.lasers = pygame.sprite.Group()
+        self.bg = pygame.sprite.Group()
 
     # ---------------------------------DEFINE FUNCTIONS-------------------------------------------#
     def collisions(self):
@@ -90,7 +89,13 @@ class Game:
 
             if game_active:
                 # ------------------------DRAW BACKGROUND------------------------------------------#
-                self.screen.blit(self.bg, (0, 0))
+                self.screen.fill("black")
+                if score < 0.5:
+                    for i in range(100):
+                        self.bg.add(Background("beginning"))
+                if random.randrange(0, 2):
+                    self.bg.add(Background())
+                self.bg.update()
 
                 # --------------------------ENEMY SPAWN--------------------------------------------#
                 if random.randrange(0, 50) == 0:
@@ -118,6 +123,7 @@ class Game:
                     self.player.sprite.reset()
                     self.enemies.empty()
                     self.lasers.empty()
+                    self.bg.empty()
 
             else:
                 # ------------------------------GAME OVER SCREEN-----------------------------------#
