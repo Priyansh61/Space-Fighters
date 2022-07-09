@@ -44,11 +44,12 @@ if __name__ == "__main__":  # Only run if this file is called directly, not if i
 
     # Loading images:
     # Menu
-    MENU_path = os.path.join(os.path.abspath(__file__), "../../assets/menu.png")
+    directory = os.path.dirname(os.path.abspath(__file__))
+    MENU_path = os.path.join( directory, "../assets/menu.png")
     MENU = pygame.image.load(MENU_path)
 
     # Background
-    BG_1_path = os.path.join(os.path.abspath(__file__), "../../assets/space_bg.png")
+    BG_1_path = os.path.join(directory, "../assets/space_bg.png")
     BG_1 = pygame.image.load(BG_1_path)
 
     # Sprite groups
@@ -69,8 +70,12 @@ if __name__ == "__main__":  # Only run if this file is called directly, not if i
 
             player.update(lasers)  # I need lasers Group for some Player functions, so I pass it in
             player.draw(screen)
-
+            
             enemies.update(lasers)
+            for enemy in enemies :
+                if random.randrange(1, 3) == 2:
+                    enemy.shoot(lasers) 
+        
             enemies.draw(screen)
 
             lasers.update()
