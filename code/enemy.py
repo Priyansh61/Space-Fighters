@@ -31,15 +31,15 @@ class Enemy(pygame.sprite.Sprite):
             pos[0] = self.display_width - self.image.get_width()
         self.rect = self.image.get_rect(topleft=pos)
 
-        self.countdown = 200
+        self.countdown = 300
 
     def move(self):
         self.rect.y += 1
 
     def shoot(self, lasers):
-        if self.countdown == 0:
+        if self.countdown == 0 and self.rect.top > 0:  # Avoid enemies shooting before entering screen
             lasers.add(Laser(self.rect.midbottom, "enemy"))
-            self.countdown = 200
+            self.countdown = 300
 
         if self.countdown > 0:
             self.countdown -= 1
@@ -50,6 +50,15 @@ class Enemy(pygame.sprite.Sprite):
                 self.kill()
                 laser.kill()
 
-    def update(self, lasers):
+    def destroy(self, enemies):  # Avoid having enemies spawn on top of each other
+        for enemy in enemies.sprites():
+            if enemy is self:
+                pass
+            elif pygame.sprite.collide_mask(self, enemy):
+                enemy.kill()
+
+    def update(self, lasers, enemies):
         self.move()
+        self.shoot(lasers)
         self.laser_hit(lasers)
+        self.destroy(enemies)
