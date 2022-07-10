@@ -14,6 +14,12 @@ class Laser(pygame.sprite.Sprite):
 
         self.team = team
         self.direction = -1
+
+        sound_path = os.path.join(os.path.abspath(__file__), "../../assets/laser-sound.wav")
+        self.sound = pygame.mixer.Sound(sound_path)
+        self.sound.set_volume(0.2)
+        self.sound.play()
+
         if self.team == "enemy":
             self.direction = 1
 
