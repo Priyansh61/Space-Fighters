@@ -59,5 +59,6 @@ class Enemy(pygame.sprite.Sprite):
 
     def update(self, lasers, enemies):
         self.move()
+        self.shoot(lasers)
         self.laser_hit(lasers)
         self.destroy(enemies)
