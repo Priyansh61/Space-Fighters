@@ -28,14 +28,13 @@ class Game:
         self.screen = pygame.display.set_mode((WIDTH, HEIGHT))
         pygame.display.set_caption("Space Fighters")
 
-        directory = os.path.dirname(__file__)
-        background_music_path = os.path.join(directory, "../assets/bg-music.wav")
+        background_music_path = os.path.dirname(__file__) + "../assets/bg-music.wav"
         background_music = pygame.mixer.Sound(background_music_path)
         background_music.set_volume(0.3)
         background_music.play(-1)
 
         # -------------------------MENU AND BACKGROUND IMAGES LOAD---------------------------------#
-        menu_path = os.path.join(directory, "../assets/menu.png")
+        menu_path = os.path.dirname(__file__) + "../assets/menu.png"
         self.menu = pygame.image.load(menu_path).convert()
 
         # -----------------------------------TEXT-------------------------------------------------#
