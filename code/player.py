@@ -7,9 +7,7 @@ class Player(pygame.sprite.Sprite):
     def __init__(self, health=100, speed=10):
         super().__init__()
         self.display = pygame.display.get_surface()
-        directory = os.path.dirname(os.path.abspath(__file__))
-        self.image_path = os.path.join(directory,
-                                       "../assets/player_ship.png")
+        self.image_path = os.path.dirname(__file__) + "/../assets/player_ship.png"
         self.image = pygame.image.load(self.image_path).convert_alpha()
         self.mask = pygame.mask.from_surface(self.image)
 

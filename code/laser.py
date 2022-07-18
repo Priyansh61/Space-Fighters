@@ -5,9 +5,7 @@ import os
 class Laser(pygame.sprite.Sprite):
     def __init__(self, pos, team="player"):
         super().__init__()
-        directory = os.path.dirname(os.path.abspath(__file__))
-        self.image_path = os.path.join(directory,
-                                       "../assets/blue_laser.png")
+        self.image_path = os.path.dirname(__file__) + "/../assets/blue_laser.png"
         self.image = pygame.image.load(self.image_path).convert_alpha()
         self.mask = pygame.mask.from_surface(self.image)
         self.rect = self.image.get_rect(center=pos)
@@ -15,8 +13,7 @@ class Laser(pygame.sprite.Sprite):
         self.team = team
         self.direction = -1
 
-        directory = os.path.dirname(__file__)
-        sound_path = os.path.join(directory, "../assets/laser-sound.wav")
+        sound_path = os.path.dirname(__file__) + "/../assets/laser-sound.wav"
         self.sound = pygame.mixer.Sound(sound_path)
         self.sound.set_volume(0.2)
         self.sound.play()
