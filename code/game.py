@@ -14,7 +14,10 @@ start_time = 0
 score = 0
 highscore = 0
 
-WIDTH, HEIGHT = 720, 670
+pygame.init()
+screen_info = pygame.display.Info()
+
+WIDTH, HEIGHT = 720, screen_info.current_h - 50
 MAX_FPS = 60
 
 
