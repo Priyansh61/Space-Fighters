@@ -1,8 +1,13 @@
+from turtle import screensize
 import pygame
 import random
 import os
 from laser import Laser
 
+# get screen height 
+pygame.init()
+screen_info = pygame.display.Info()
+HEIGHT = screen_info.current_h
 
 class Enemy(pygame.sprite.Sprite):
     def __init__(self, pos, level=1):
@@ -33,7 +38,8 @@ class Enemy(pygame.sprite.Sprite):
         self.countdown = 300
 
     def move(self):
-        self.rect.y += 1
+        # default size WIDTH, HEIGHT = 720, 670
+        self.rect.y += (HEIGHT // 670)
 
     def shoot(self, lasers):
         if self.countdown == 0 and self.rect.top > 0:  # Avoid enemies shooting before entering screen
