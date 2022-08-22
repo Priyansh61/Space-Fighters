@@ -14,7 +14,10 @@ start_time = 0
 score = 0
 highscore = 0
 
-WIDTH, HEIGHT = 720, 670
+pygame.init()
+screen_info = pygame.display.Info()
+
+WIDTH, HEIGHT = screen_info.current_w, screen_info.current_h - 50
 MAX_FPS = 60
 
 
@@ -36,6 +39,7 @@ class Game:
         # -------------------------MENU AND BACKGROUND IMAGES LOAD---------------------------------#
         menu_path = os.path.dirname(__file__) + "/../assets/menu.png"
         self.menu = pygame.image.load(menu_path).convert()
+        self.menu = pygame.transform.scale(self.menu, (WIDTH, HEIGHT))
 
         # -----------------------------------TEXT-------------------------------------------------#
         game_over_font = pygame.font.SysFont('arial', 60)
